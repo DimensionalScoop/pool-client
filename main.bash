@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Main"
+echo "Main2"
