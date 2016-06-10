@@ -28,6 +28,8 @@ do
 	#bash "choose-dm.bash"
 	de="mate-session" #"xfce4-session"
 
+	startup="bash /opt/poolscripts/run-on-pool-client-login.sh" # run script on login
+
 	echo -n "Username: "
 	read username
 	echo -n "Password: "
@@ -40,7 +42,7 @@ do
 	WID=$(xdotool search --class termite | tail -n1)
 	xdotool windowunmap --sync $WID # hides terminal used to login from X
 
-	(sshpass -p "$password" ssh -YC -l "$username" "$server" $de) # -C compresses stream, seems to work faster than sending uncompressed stream
+	(sshpass -p "$password" ssh -YC -l "$username" "$server" "$startup && $de") # -C compresses stream, seems to work faster than sending uncompressed stream
 	returncode=$?
 
 	xdotool windowmap --sync $WID # let login terminal re-appear
