@@ -9,6 +9,7 @@ while [ True ]
 do
 	clear
 	echo "Studpool Arch Server"
+	echo "Client v1.0"
 	
 	(ping -c1 $server >> /dev/null)
 	if [ "$?" -ne "0" ]
@@ -37,7 +38,7 @@ do
 	WID=$(xdotool search --class termite | tail -n1)
 	xdotool windowunmap --sync $WID # hides terminal used to login from X
 
-	(sshpass -p "$password" ssh -YC -l "$username" "$server" $de) # -C compresses stream, seems to work faster than sending uncompressed stream
+	(sshpass -p "$password" ssh -Y -l "$username" "$server" $de) # -C compresses stream, seems to work faster than sending uncompressed stream
 	returncode=$?
 
 	xdotool windowmap --sync $WID # let login terminal re-appear
