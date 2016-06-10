@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# server needs to kill sshd: user@notty on logout
+
 server="stud.physik.tu-dortmund.de"
 
 trap '' 2 # ignore Ctrl+C
@@ -28,8 +30,8 @@ do
 
 	echo -n "Username: "
 	read username
-	echo -n "Password: "
-	read -s password
+	#echo -n "Password: "
+	#read -s password
 
 	echo ""
 	echo "Einloggen..."
@@ -38,7 +40,7 @@ do
 	WID=$(xdotool search --class termite | tail -n1)
 	xdotool windowunmap --sync $WID # hides terminal used to login from X
 
-	(sshpass -p "$password" ssh -YC -l "$username" "$server" $de) # -C compresses stream, seems to work faster than sending uncompressed stream
+	(ssh -YC -l "$username" "$server" $de) # -C compresses stream, seems to work faster than sending uncompressed stream
 	returncode=$?
 
 	xdotool windowmap --sync $WID # let login terminal re-appear
