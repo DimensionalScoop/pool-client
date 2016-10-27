@@ -7,6 +7,10 @@ server="stud.physik.tu-dortmund.de"
 trap '' 2 # ignore Ctrl+C
 
 
+echo "Maintainance"
+sleep 1
+exit
+
 while [ True ]
 do
 	clear
@@ -32,13 +36,6 @@ do
 
 	echo -n "Username: "
 	read username
-
-	if [ "$username" -eq "aadmin" ]
-	then
-		echo "Hallo Admin."
-		sleep 2
-		exit
-	fi
 
 	echo -n "Password: "
 	read -s password
