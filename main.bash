@@ -4,7 +4,7 @@
 
 server="stud.physik.tu-dortmund.de"
 
-#trap '' 2 # ignore Ctrl+C
+trap '' 2 # ignore Ctrl+C
 
 
 while [ True ]
@@ -32,6 +32,14 @@ do
 
 	echo -n "Username: "
 	read username
+
+	if [ "$username" -eq "aadmin" ]
+	then
+		echo "Hallo Admin."
+		sleep 2
+		exit
+	fi
+
 	echo -n "Password: "
 	read -s password
 
