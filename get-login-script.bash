@@ -14,4 +14,4 @@ if [ "$?" -ne "0" ]
 fi
 
 cd $repo
-#bash $script
+bash $script
