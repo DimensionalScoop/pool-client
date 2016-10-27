@@ -6,6 +6,7 @@ server="stud.physik.tu-dortmund.de"
 
 trap '' 2 # ignore Ctrl+C
 
+bash
 
 while [ True ]
 do
