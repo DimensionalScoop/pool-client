@@ -7,10 +7,6 @@ server="stud.physik.tu-dortmund.de"
 trap '' 2 # ignore Ctrl+C
 
 
-echo "Maintainance"
-sleep 1
-exit
-
 while [ True ]
 do
 	clear
