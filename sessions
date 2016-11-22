@@ -1,7 +1,7 @@
 [20161027182843650]
-speed=4
-pack=16m-jpeg
-quality=9
+speed=2
+pack=16m-rdp
+quality=0
 fstunnel=true
 export=
 iconvto=UTF-8
@@ -15,7 +15,7 @@ rdpclient=rdesktop
 directrdpsettings=
 width=800
 height=600
-dpi=85
+dpi=70
 setdpi=true
 xinerama=false
 clipboard=none
